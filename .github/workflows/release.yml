@@ -1,0 +1,40 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # 通过 git tag 触发发布
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Artifact from Build Workflow
+        uses: dawidd6/action-download-artifact@v10
+        with:
+          workflow: build.yml
+          repo: ${{ github.repository }}  # 同一仓库
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: artifacts/
+      
+      # - name: Rename IPA
+      #   run: mv artifacts/ios-ipa/pilipala.ipa artifacts/pilipala-${{ github.ref_name }}.ipa
+
+      - name: Rename APK
+        run: mv artifacts/android-apk/pilipala.apk artifacts/pilipala-${{ github.ref_name }}.apk
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: |
+            artifacts/pilipala-${{ github.ref_name }}.apk
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
