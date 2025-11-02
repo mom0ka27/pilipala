@@ -32,9 +32,9 @@ class _ReplySaveState extends State<ReplySave> {
           "plpl_reply_${DateTime.now().toString().replaceAll(RegExp(r'[- :]'), '').split('.').first}";
       final result = await SaverGallery.saveImage(
         Uint8List.fromList(pngBytes),
-        name: '$picName.png',
+        fileName: '$picName.png',
         androidRelativePath: "Pictures/PiliPala",
-        androidExistNotSave: false,
+        skipIfExists: false,
       );
       if (result.isSuccess) {
         SmartDialog.showToast('保存成功');
