@@ -62,8 +62,6 @@ dependencies:
   permission_handler: ^12.0.1
   # 分享
   share_plus: ^12.0.1
-  # cookie 管理
-  webview_cookie_manager: ^2.0.6
   # 浏览器
   webview_flutter: ^4.8.0
   # 解决sliver滑动不同步
@@ -99,7 +97,6 @@ dependencies:
   universal_platform: ^1.1.0
   # 进度条
   audio_video_progress_bar: ^2.0.3
-  auto_orientation: ^2.3.1
   protobuf: ^5.0.0
 
   # 获取appx信息
@@ -110,22 +107,15 @@ dependencies:
   easy_debounce: ^2.0.3
   # 高帧率
   flutter_displaymode: ^0.7.0
-  # scheme跳转
-  appscheme: ^1.2.0
   # 弹幕
   ns_danmaku:
     git:
       url: https://github.com/guozhigq/flutter_ns_danmaku.git
       ref: master
   # 状态栏图标控制
-  status_bar_control: ^3.2.1
-  # 代理
-  system_proxy: ^0.1.0
+  # status_bar_control: ^3.2.1
   # pip
-  floating:
-    git:
-      url: https://github.com/guozhigq/floating.git
-      ref: main
+  floating: ^6.0.0
   # html解析
   html: ^0.15.4
   # html渲染
@@ -137,8 +127,6 @@ dependencies:
   catcher_2: ^2.1.5
   logger: ^2.3.0
   path: ^1.9.0
-  # 电池优化
-  disable_battery_optimization: ^1.1.1
   # 展开/收起
   expandable: ^5.0.1
   # 投屏
@@ -151,6 +139,12 @@ dependencies:
   brotli: ^0.6.0
   # 文本语法高亮
   re_highlight: ^0.0.3
+  app_links: ^6.4.1
+  auto_orientation_v2: ^2.3.6
+  webview_cookie_manager:
+    git:
+      url: https://github.com/mom0ka27/webview_cookie_manager
+      ref: patch-1
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,7 @@
+gradle.ext.addJCenterStub = {
+    settings.metaClass.jcenter = { -> println("[Warning] jcenter() called, but stubbed.") }
+    rootProject.metaClass.jcenter = { -> println("[Warning] jcenter() called, but stubbed.") }
+}
+gradle.afterProject { project ->
+    project.metaClass.jcenter = { -> println("[Warning] jcenter() stubbed in ${project.name}") }
+}

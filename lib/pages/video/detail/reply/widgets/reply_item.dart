@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:appscheme/appscheme.dart';
+import 'package:app_links/app_links.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -721,16 +721,16 @@ InlineSpan buildContent(
                         });
                       } else {
                         Uri uri = Uri.parse(matchStr.replaceAll('/?', '?'));
-                        SchemeEntity scheme = SchemeEntity(
-                          scheme: uri.scheme,
-                          host: uri.host,
-                          port: uri.port,
-                          path: uri.path,
-                          query: uri.queryParameters,
-                          source: '',
-                          dataString: matchStr,
-                        );
-                        PiliSchame.fullPathPush(scheme);
+                        // SchemeEntity scheme = SchemeEntity(
+                        //   scheme: uri.scheme,
+                        //   host: uri.host,
+                        //   port: uri.port,
+                        //   path: uri.path,
+                        //   query: uri.queryParameters,
+                        //   source: '',
+                        //   dataString: matchStr,
+                        // );
+                        // PiliSchame.fullPathPush(scheme);
                       }
                     } else {
                       if (appUrlSchema.startsWith('bilibili://search')) {

@@ -8,7 +8,7 @@ import 'package:pilipala/http/dynamics.dart';
 import 'package:pilipala/models/dynamics/result.dart';
 import 'package:pilipala/pages/dynamics/index.dart';
 import 'package:pilipala/utils/feed_back.dart';
-import 'package:status_bar_control/status_bar_control.dart';
+// import 'package:status_bar_control/status_bar_control.dart';
 import 'rich_node_panel.dart';
 
 class ActionPanel extends StatefulWidget {
@@ -54,7 +54,7 @@ class _ActionPanelState extends State<ActionPanel>
   }
 
   onInit() async {
-    statusHeight = await StatusBarControl.getHeight;
+    // statusHeight = await StatusBarControl.getHeight;
   }
 
   // 动态点赞

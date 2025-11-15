@@ -1315,7 +1315,8 @@ class _HeaderControlState extends State<HeaderControl> {
                       widget.videoDetailCtr!.data.dash!.video!.first.width!,
                       widget.videoDetailCtr!.data.dash!.video!.first.height!,
                     );
-                    await widget.floating!.enable(aspectRatio: aspectRatio);
+                    await widget.floating!
+                        .enable(ImmediatePiP(aspectRatio: aspectRatio));
                   } else {}
                 },
                 icon: const Icon(

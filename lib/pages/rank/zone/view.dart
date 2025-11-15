@@ -10,7 +10,7 @@ import 'package:pilipala/pages/rank/zone/index.dart';
 import 'package:pilipala/utils/main_stream.dart';
 
 class ZonePage extends StatefulWidget {
-  const ZonePage({Key? key, required this.rid}) : super(key: key);
+  const ZonePage({super.key, required this.rid});
 
   final int rid;
 

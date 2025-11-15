@@ -17,14 +17,38 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "6.4.1"
-  appscheme:
+  app_links:
     dependency: "direct main"
     description:
-      name: appscheme
-      sha256: e176f2959fe2e2b63e149d4463802f84fde7bdbd33db32ea1415f5e4efd1c37c
+      name: app_links
+      sha256: "5f88447519add627fe1cbcab4fd1da3d4fed15b9baf29f28b22535c95ecee3e8"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.2.0"
+    version: "6.4.1"
+  app_links_linux:
+    dependency: transitive
+    description:
+      name: app_links_linux
+      sha256: f5f7173a78609f3dfd4c2ff2c95bd559ab43c80a87dc6a095921d96c05688c81
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.3"
+  app_links_platform_interface:
+    dependency: transitive
+    description:
+      name: app_links_platform_interface
+      sha256: "05f5379577c513b534a29ddea68176a4d4802c46180ee8e2e966257158772a3f"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.2"
+  app_links_web:
+    dependency: transitive
+    description:
+      name: app_links_web
+      sha256: af060ed76183f9e2b87510a9480e56a5352b6c249778d07bd2c95fc35632a555
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.4"
   archive:
     dependency: transitive
     description:
@@ -97,14 +121,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.3"
-  auto_orientation:
+  auto_orientation_v2:
     dependency: "direct main"
     description:
-      name: auto_orientation
-      sha256: cd56bb59b36fa54cc28ee254bc600524f022a4862f31d5ab20abd7bb1c54e678
+      name: auto_orientation_v2
+      sha256: "96a72a00b367e1aebef4be55f4804c0369197dc65a0dffd039d4c2f72f59d955"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.6"
   boolean_selector:
     dependency: transitive
     description:
@@ -417,14 +441,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
-  disable_battery_optimization:
-    dependency: "direct main"
-    description:
-      name: disable_battery_optimization
-      sha256: "7fbda76cdd30d01d75e091db8869b8cf2fd4c7b7edef3abce0d7206569603051"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.2"
   dismissible_page:
     dependency: "direct main"
     description:
@@ -532,12 +548,11 @@ packages:
   floating:
     dependency: "direct main"
     description:
-      path: "."
-      ref: main
-      resolved-ref: "6b0da056163341e8c815a4973e5966f3d5b4ac30"
-      url: "https://github.com/guozhigq/floating.git"
-    source: git
-    version: "2.0.1"
+      name: floating
+      sha256: e51ce1dbcab3ea83da0ad1b07f2091b99c0e8680184c780a000567f41234d454
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "6.0.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -694,6 +709,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.1"
+  gtk:
+    dependency: transitive
+    description:
+      name: gtk
+      sha256: e8ce9ca4b1df106e4d72dad201d345ea1a036cc12c360f1a7d5a758f78ffa42c
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.0"
   hive:
     dependency: "direct main"
     description:
@@ -1463,14 +1486,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.12.1"
-  status_bar_control:
-    dependency: "direct main"
-    description:
-      name: status_bar_control
-      sha256: "7f2c1f3f7fd13b85ed284eb7ca3f74ceb8dcfdd25636d3a84186d0a687d36693"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "3.2.1"
   stream_channel:
     dependency: transitive
     description:
@@ -1503,14 +1518,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.4.0"
-  system_proxy:
-    dependency: "direct main"
-    description:
-      name: system_proxy
-      sha256: bbdfc9736a963409941fb0e7c494606c1f13c2be34de15833ee385da83cf7ab0
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.0"
   term_glyph:
     dependency: transitive
     description:
@@ -1754,11 +1761,12 @@ packages:
   webview_cookie_manager:
     dependency: "direct main"
     description:
-      name: webview_cookie_manager
-      sha256: "425a9feac5cd2cb62a71da3dda5ac2eaf9ece5481ee8d79f3868dc5ba8223ad3"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.0.6"
+      path: "."
+      ref: patch-1
+      resolved-ref: "5be37a5756703b6d2dc557a1bba53554174f6c0d"
+      url: "https://github.com/mom0ka27/webview_cookie_manager"
+    source: git
+    version: "2.0.7"
   webview_flutter:
     dependency: "direct main"
     description:

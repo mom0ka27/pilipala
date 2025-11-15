@@ -1,4 +1,4 @@
-import 'package:appscheme/appscheme.dart';
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -10,31 +10,28 @@ import 'url_utils.dart';
 import 'utils.dart';
 
 class PiliSchame {
-  static AppScheme appScheme = AppSchemeImpl.getInstance()!;
+  static final appLinks = AppLinks();
   static Future<void> init() async {
-    ///
-    final SchemeEntity? value = await appScheme.getInitScheme();
-    if (value != null) {
-      _routePush(value);
+    final link = await appLinks.getInitialLink();
+    if (link != null) {
+      _routePush(link);
     }
 
     /// 完整链接进入 b23.无效
-    appScheme.getLatestScheme().then((SchemeEntity? value) {
-      if (value != null) {
-        _routePush(value);
+    appLinks.getLatestLink().then((link) {
+      if (link != null) {
+        _routePush(link);
       }
     });
 
     /// 注册从外部打开的Scheme监听信息 #
-    appScheme.registerSchemeListener().listen((SchemeEntity? event) {
-      if (event != null) {
-        _routePush(event);
-      }
+    appLinks.uriLinkStream.listen((event) {
+      _routePush(event);
     });
   }
 
   /// 路由跳转
-  static void _routePush(value) async {
+  static void _routePush(Uri value) async {
     final String scheme = value.scheme;
     final String host = value.host;
     final String path = value.path;
@@ -112,7 +109,7 @@ class PiliSchame {
           break;
         default:
           SmartDialog.showToast('未匹配地址，请联系开发者');
-          Clipboard.setData(ClipboardData(text: value.toJson().toString()));
+          Clipboard.setData(ClipboardData(text: value.toString()));
           break;
       }
     }
@@ -148,7 +145,7 @@ class PiliSchame {
     }
   }
 
-  static Future<void> fullPathPush(SchemeEntity value) async {
+  static Future<void> fullPathPush(value) async {
     // https://m.bilibili.com/bangumi/play/ss39708
     // https | m.bilibili.com | /bangumi/play/ss39708
     // final String scheme = value.scheme!;

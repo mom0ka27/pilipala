@@ -98,9 +98,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
   @override
   void dispose() {
     plPlayerController.dispose();
-    if (floating != null) {
-      floating!.dispose();
-    }
+    floating?.cancelOnLeavePiP();
     _scrollController.dispose();
     fabAnimationCtr.dispose();
     super.dispose();

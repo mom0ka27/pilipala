@@ -22,9 +22,9 @@ import 'widgets/intro_detail.dart';
 class BangumiIntroPanel extends StatefulWidget {
   final int? cid;
   const BangumiIntroPanel({
-    Key? key,
+    super.key,
     this.cid,
-  }) : super(key: key);
+  });
 
   @override
   State<BangumiIntroPanel> createState() => _BangumiIntroPanelState();
@@ -146,7 +146,7 @@ class _BangumiInfoState extends State<BangumiInfo> {
   }
 
   // 收藏
-  showFavBottomSheet() {
+  void showFavBottomSheet() {
     if (bangumiIntroController.userInfo.mid == null) {
       SmartDialog.showToast('账号未登录');
       return;
@@ -162,7 +162,7 @@ class _BangumiInfoState extends State<BangumiInfo> {
   }
 
   // 视频介绍
-  showIntroDetail() {
+  void showIntroDetail() {
     feedBack();
     showBottomSheet(
       context: context,
@@ -319,7 +319,7 @@ class _BangumiInfoState extends State<BangumiInfo> {
           if (widget.bangumiDetail!.episodes!.isNotEmpty) ...[
             BangumiPanel(
               pages: widget.bangumiDetail!.episodes!,
-              cid: cid! ?? widget.bangumiDetail!.episodes!.first.cid!,
+              cid: cid ?? widget.bangumiDetail!.episodes!.first.cid!,
               sheetHeight: sheetHeight,
               changeFuc: (bvid, cid, aid, cover) => bangumiIntroController
                   .changeSeasonOrbangu(bvid, cid, aid, cover),

@@ -25,7 +25,7 @@ import 'package:pilipala/plugin/pl_player/index.dart';
 import 'package:pilipala/plugin/pl_player/models/play_repeat.dart';
 import 'package:pilipala/services/service_locator.dart';
 import 'package:pilipala/utils/storage.dart';
-import 'package:status_bar_control/status_bar_control.dart';
+// import 'package:status_bar_control/status_bar_control.dart';
 
 import '../../../plugin/pl_player/models/bottom_control_type.dart';
 import '../../../services/shutdown_timer_service.dart';
@@ -134,7 +134,6 @@ class _VideoDetailPageState extends State<VideoDetailPage>
   // 播放器状态监听
   void playerListener(PlayerStatus status) async {
     playerStatus.value = status;
-    autoEnterPip(status: status);
     if (status == PlayerStatus.completed) {
       // 结束播放退出全屏
       if (autoExitFullcreen) {
@@ -166,10 +165,6 @@ class _VideoDetailPageState extends State<VideoDetailPage>
         }
       } catch (_) {}
     }
-    if (Platform.isAndroid) {
-      floating.toggleAutoPip(
-          autoEnter: status == PlayerStatus.playing && autoPiP);
-    }
   }
 
   // 继续播放或重新播放
@@ -187,7 +182,6 @@ class _VideoDetailPageState extends State<VideoDetailPage>
     vdCtr.autoPlay.value = true;
     vdCtr.isShowCover.value = false;
     isShowing.value = true;
-    autoEnterPip(status: PlayerStatus.playing);
   }
 
   void fullScreenStatusListener() {
@@ -219,7 +213,7 @@ class _VideoDetailPageState extends State<VideoDetailPage>
   }
 
   getStatusHeight() async {
-    statusHeight = await StatusBarControl.getHeight;
+    // statusHeight = await StatusBarControl.getHeight;
   }
 
   @override
@@ -229,13 +223,10 @@ class _VideoDetailPageState extends State<VideoDetailPage>
       plPlayerController!.removeStatusLister(playerListener);
       plPlayerController!.dispose();
     }
-    if (vdCtr.floating != null) {
-      vdCtr.floating!.dispose();
-    }
+    vdCtr.floating?.cancelOnLeavePiP();
     videoPlayerServiceHandler.onVideoDetailDispose();
     if (Platform.isAndroid) {
-      floating.toggleAutoPip(autoEnter: false);
-      floating.dispose();
+      floating.cancelOnLeavePiP();
     }
     appbarStream.close();
     WidgetsBinding.instance.removeObserver(this);
@@ -302,15 +293,6 @@ class _VideoDetailPageState extends State<VideoDetailPage>
     super.didChangeDependencies();
     VideoDetailPage.routeObserver
         .subscribe(this, ModalRoute.of(context)! as PageRoute);
-  }
-
-  void autoEnterPip({PlayerStatus? status}) {
-    final String routePath = Get.currentRoute;
-    if (autoPiP && routePath.startsWith('/video')) {
-      floating.toggleAutoPip(
-        autoEnter: autoPiP && status == PlayerStatus.playing,
-      );
-    }
   }
 
   // 生命周期监听

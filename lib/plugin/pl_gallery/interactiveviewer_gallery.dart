@@ -11,7 +11,7 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pilipala/utils/download.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:status_bar_control/status_bar_control.dart';
+// import 'package:status_bar_control/status_bar_control.dart';
 import 'custom_dismissible.dart';
 import 'interactive_viewer_boundary.dart';
 
@@ -114,10 +114,10 @@ class _InteractiveviewerGalleryState extends State<InteractiveviewerGallery>
   }
 
   setStatusBar() async {
-    if (Platform.isIOS || Platform.isAndroid) {
-      await StatusBarControl.setHidden(true,
-          animation: StatusBarAnimation.FADE);
-    }
+    // if (Platform.isIOS || Platform.isAndroid) {
+    //   await StatusBarControl.setHidden(true,
+    //       animation: StatusBarAnimation.FADE);
+    // }
   }
 
   @override
@@ -125,7 +125,7 @@ class _InteractiveviewerGalleryState extends State<InteractiveviewerGallery>
     _pageController!.dispose();
     _animationController.dispose();
     try {
-      StatusBarControl.setHidden(false, animation: StatusBarAnimation.FADE);
+      // StatusBarControl.setHidden(false, animation: StatusBarAnimation.FADE);
     } catch (_) {}
     super.dispose();
   }
