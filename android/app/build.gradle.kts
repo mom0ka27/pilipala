@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.guozhigq.pilipala"
-    compileSdkVersion = 36
+    compileSdk = 36
     ndkVersion = "29.0.14206865"
 
     compileOptions {
