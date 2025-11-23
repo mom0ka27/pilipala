@@ -7,8 +7,8 @@ plugins {
 
 android {
     namespace = "com.guozhigq.pilipala"
-    compileSdk = 36
-    ndkVersion = "29.0.13113456"
+    compileSdkVersion = 36
+    ndkVersion = "29.0.14206865"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -25,7 +25,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
-        targetSdk = 35
+        targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
