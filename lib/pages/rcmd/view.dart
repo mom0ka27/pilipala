@@ -116,7 +116,7 @@ class _RcmdPageState extends State<RcmdPage>
     );
   }
 
-  Widget contentGrid(ctr, videoList) {
+  Widget contentGrid(RcmdController ctr, videoList) {
     // double maxWidth = Get.size.width;
     // int baseWidth = 500;
     // int step = 300;
@@ -135,7 +135,7 @@ class _RcmdPageState extends State<RcmdPage>
         // 行间距
         mainAxisSpacing: StyleString.safeSpace,
         // 列间距
-        crossAxisSpacing: StyleString.safeSpace,
+        crossAxisSpacing: 6,
         // 列数
         crossAxisCount: crossAxisCount,
         mainAxisExtent: mainAxisExtent,

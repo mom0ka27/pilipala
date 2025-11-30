@@ -23,11 +23,11 @@ class VideoCardV extends StatelessWidget {
   final Function? blockUserCb;
 
   const VideoCardV({
-    Key? key,
+    super.key,
     required this.videoItem,
     required this.crossAxisCount,
     this.blockUserCb,
-  }) : super(key: key);
+  });
 
   bool isStringNumeric(String str) {
     RegExp numericRegex = RegExp(r'^\d+$');
@@ -171,13 +171,13 @@ class VideoContent extends StatelessWidget {
   final Function? blockUserCb;
 
   const VideoContent({
-    Key? key,
+    super.key,
     required this.videoItem,
     required this.crossAxisCount,
     this.blockUserCb,
-  }) : super(key: key);
+  });
 
-  Widget _buildBadge(String text, String type, [double fs = 12]) {
+  Widget _buildBadge(String text, String type, [double fs = 8]) {
     return PBadge(
       text: text,
       stack: 'normal',
@@ -196,11 +196,10 @@ class VideoContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            videoItem.title,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
+          Text(videoItem.title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.titleSmall!),
           if (crossAxisCount > 1) ...[
             const SizedBox(height: 2),
             VideoStat(videoItem: videoItem, crossAxisCount: crossAxisCount),
@@ -209,20 +208,25 @@ class VideoContent extends StatelessWidget {
           Row(
             children: [
               if (videoItem.goto == 'bangumi')
-                _buildBadge(videoItem.bangumiBadge, 'line', 9),
+                _buildBadge(videoItem.bangumiBadge, 'line'),
               if (videoItem.rcmdReason != null)
-                _buildBadge(videoItem.rcmdReason, 'color'),
-              if (videoItem.goto == 'picture') _buildBadge('动态', 'line', 9),
-              if (videoItem.isFollowed == 1) _buildBadge('已关注', 'color'),
+                _buildBadge(videoItem.rcmdReason, 'color', 9),
+              if (videoItem.goto == 'picture') _buildBadge('动态', 'line'),
+              if (videoItem.isFollowed == 1)
+                _buildBadge('已关注', 'color')
+              else
+                _buildBadge('UP', 'line'),
               Expanded(
                 flex: crossAxisCount == 1 ? 0 : 1,
                 child: Text(
                   videoItem.owner.name,
                   maxLines: 1,
                   style: TextStyle(
-                    fontSize: Theme.of(context).textTheme.labelMedium!.fontSize,
+                    fontSize: Theme.of(context).textTheme.labelSmall!.fontSize,
+                    fontWeight: FontWeight.w500,
                     color: Theme.of(context).colorScheme.outline,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               if (crossAxisCount == 1) ...[
@@ -273,10 +277,10 @@ class VideoStat extends StatelessWidget {
   final int crossAxisCount;
 
   const VideoStat({
-    Key? key,
+    super.key,
     required this.videoItem,
     required this.crossAxisCount,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
